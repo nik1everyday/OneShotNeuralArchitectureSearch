@@ -35,7 +35,7 @@ def get_data_loaders(batch_size=128, num_workers=0):
     return trainloader, testloader
 
 
-def plot_accuracies(mode, accuracies, title, save_path):
+def generate_plot_accuracies(mode, accuracies, title, save_path):
     if mode == 'oneshot':
         accuracies = list(map(list, zip(*accuracies)))
 
@@ -51,23 +51,31 @@ def plot_accuracies(mode, accuracies, title, save_path):
     plt.show()
 
 
-def generate_accuracy_table(oneshot_acc, standalone_acc, output_path, epochs=20):
-    index = [f"Epoch {epoch + 1}" for epoch in range(epochs)]
+def generate_accuracy_table(oneshot_acc, standalone_acc, output_path):
+    index = [f"Subnet {subnet + 1}" for subnet in range(len(oneshot_acc))]
     data = {
-        "subnet": index,
-        "oneshot": [],
-        "standalone": []
+        "SUBNET": index,
+        "ONESHOT": [],
+        "STANDALONE": []
     }
     oneshot_acc = list(map(list, zip(*oneshot_acc)))
 
-    for i in range(9):
-        data["oneshot"].append(max(oneshot_acc[i]))
-        data["standalone"].append(max(standalone_acc[i]))
+    for i in range(len(oneshot_acc)):
+        data["ONESHOT"].append(max(oneshot_acc[i]))
+        data["STANDALONE"].append(max(standalone_acc[i]))
 
-    df = pd.DataFrame(data, index=index)
+    df = pd.DataFrame(data)
 
-    styled_table = df.style.background_gradient(cmap='Blues')
-    image = styled_table.to_image()
-    image.save(output_path)
+    plt.figure(figsize=(7, 4))
+    plt.axis('off')
+    table = plt.table(cellText=df.values,
+                      colLabels=df.columns,
+                      cellLoc='center',
+                      loc='center',
+                      colColours=['lightgray'] * len(df.columns))
+    table.auto_set_font_size(False)
+    table.set_fontsize(12)
+    table.scale(1.2, 1.2)
+    plt.title("OneShot-vs-Standalone Accuracy Table", fontsize=14)
 
-    return df
+    plt.savefig(output_path)
