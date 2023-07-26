@@ -1,6 +1,8 @@
 # One-Shot Neural Architecture Search
 
-This repository contains code for training a SuperNet using one-shot neural architecture search (NAS) on the MNIST dataset. One-shot NAS is a technique for automatically discovering high-performing neural network architectures by training a single "SuperNet" that contains all possible sub-networks, and then evaluating the performance of each sub-network on a validation set. This approach can significantly reduce the computational cost of architecture search, as it requires training only one network instead of many. In this project, we use a SuperNet that contains 9 different architectures, and compare the accuracy and training time of sub-networks trained using the SuperNet to those trained independently.
+This repository contains code for training a SuperNet using one-shot neural architecture search (NAS) on the MNIST dataset. One-shot NAS is a technique for automatically discovering high-performing neural network architectures by training a single "SuperNet" that contains all possible sub-networks, and then evaluating the performance of each sub-network on a validation set. 
+
+This approach can significantly reduce the computational cost of architecture search, as it requires training only one network instead of many. In this project, we use a SuperNet that contains 9 different architectures, and compare the accuracy and training time of sub-networks trained using the SuperNet to those trained independently.
 
 ## Task
 
