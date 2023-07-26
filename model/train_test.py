@@ -6,6 +6,22 @@ from model.utils import get_data_loaders
 
 
 def train(model, device, train_loader, optimizer, epoch, loss_func, subnet=None):
+    """Trains a neural network model on a given data loader for one epoch.
+
+        Args:
+            model (nn.Module): A PyTorch neural network model.
+            device (torch.device): A torch.device indicating whether to use CPU or CUDA for training.
+            train_loader (DataLoader): A PyTorch DataLoader containing the training data.
+            optimizer (Optimizer): A PyTorch optimizer for updating the model parameters.
+            epoch (int): The current epoch number.
+            loss_func (function): A PyTorch loss function for computing the loss.
+            subnet (tuple of int or None): A tuple of two integers specifying the number of stages
+                for each NASBlock in the subnet, or None to sample randomly.
+
+        Returns:
+            None
+        """
+
     model.train()
     for batch_idx, (data, label) in enumerate(train_loader):
         if subnet is None:
@@ -25,6 +41,19 @@ def train(model, device, train_loader, optimizer, epoch, loss_func, subnet=None)
 
 
 def test(model, device, test_loader, loss_func, subnet):
+    """Evaluates a neural network model on a given data loader.
+
+    Args:
+        model (nn.Module): A PyTorch neural network model.
+        device (torch.device): A torch.device indicating whether to use CPU or CUDA for evaluation.
+        test_loader (DataLoader): A PyTorch DataLoader containing the test data.
+        loss_func (function): A PyTorch loss function for computing the loss.
+        subnet (tuple of int): A tuple of two integers specifying the number of stages for each NASBlock in the subnet.
+
+    Returns:
+        float: The accuracy of the model on the test data.
+    """
+
     model.eval()
     test_loss = 0
     correct = 0
@@ -45,6 +74,17 @@ def test(model, device, test_loader, loss_func, subnet):
 
 
 def train_test(supernet, epochs=20, subnet=None):
+    """Trains and tests a neural network supernet for a given number of epochs.
+
+    Args:
+        supernet (SuperNet): A PyTorch neural network supernet.
+        epochs (int): The number of epochs to train the supernet.
+        subnet (tuple of int or None): A tuple of two integers specifying the number of stages
+            for each NASBlock in the subnet, or None to sample randomly.
+
+    Returns:
+        list: A list of lists containing the test accuracy for each subnet at each epoch.
+    """
 
     torch.manual_seed(42)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
