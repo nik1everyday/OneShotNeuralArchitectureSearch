@@ -74,3 +74,9 @@ During testing, some of our one-shot sub-networks achieved accuracy levels above
 Overall, our results suggest that one-shot NAS is a promising approach for optimizing neural network architectures, but that careful consideration must be given to selecting the best architecture when multiple high-performing options are identified. By carefully considering the trade-offs between accuracy, complexity, and other factors, we can effectively navigate the challenge of selecting the best architecture from among many high-performing options identified through one-shot NAS.
 
 Future research could focus on developing methods for effectively selecting the best architecture in such situations, or on adapting one-shot NAS for use in other domains beyond image classification.
+
+# References
+
+1. Bender, G. (2018). "Understanding and Simplifying One-Shot Architecture Search". Retrieved from http://proceedings.mlr.press/v80/bender18a/bender18a.pdf
+
+2. Dong, P. (2022). "Prior-Guided One-shot Neural Architecture Search". Retrieved from https://arxiv.org/pdf/2206.13329.pdf
