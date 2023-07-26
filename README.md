@@ -65,16 +65,15 @@ The SuperNet and each of the 9 subnets were trained and tested on the MNIST data
 | Subnet 8 | 3 | 2
 | Subnet 9 | 3 | 3
 
-## One Shot Subnets
 
+## One Shot Subnets
 ![One Shot Training Progress](pics/one-shot-subnets.png)
 
 ## Standalone Subnets
-
 ![Standalone Training Progress](pics/standalone-subnets.png)
 
-## Comparison Table
 
+## Comparison Table
 ![One Shot vs Standalone Subnets Top-1 Accuracies Table](pics/oneshot_vs_standalone_table.png)
 
 From the experiment results, it can be seen that the subnets trained using the SuperNet achieve comparable accuracy to independently trained subnets but train significantly faster. However, the accuracy of the subnets trained using the SuperNet may be slightly lower than the accuracy of independently trained subnets.
