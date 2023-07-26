@@ -71,4 +71,6 @@ Our experiments with one-shot neural architecture search (NAS) on the MNIST data
 
 During testing, some of our one-shot sub-networks achieved accuracy levels above 95%, with almost all sub-networks reaching 99% accuracy within 20 epochs. This presents a challenge when it comes to selecting the final architecture to use, as there may be multiple high-performing options to choose from.
 
-Overall, our results suggest that one-shot NAS is a promising approach for optimizing neural network architectures, but that careful consideration must be given to selecting the best architecture when multiple high-performing options are identified. Future research could focus on developing methods for effectively selecting the best architecture in such situations, or on adapting one-shot NAS for use in other domains beyond image classification.
+Overall, our results suggest that one-shot NAS is a promising approach for optimizing neural network architectures, but that careful consideration must be given to selecting the best architecture when multiple high-performing options are identified. By carefully considering the trade-offs between accuracy, complexity, and other factors, we can effectively navigate the challenge of selecting the best architecture from among many high-performing options identified through one-shot NAS.
+
+Future research could focus on developing methods for effectively selecting the best architecture in such situations, or on adapting one-shot NAS for use in other domains beyond image classification.
