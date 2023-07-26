@@ -64,3 +64,11 @@ The SuperNet and each of the 9 subnets were trained and tested on the MNIST data
 ![One Shot vs Standalone Subnets Top-1 Accuracies Table](pics/oneshot_vs_standalone_table.png)
 
 From the experiment results, it can be seen that the subnets trained using the SuperNet achieve comparable accuracy to independently trained subnets but train significantly faster. However, the accuracy of the subnets trained using the SuperNet may be slightly lower than the accuracy of independently trained subnets.
+
+# Conclusion
+
+Our experiments with one-shot neural architecture search (NAS) on the MNIST dataset demonstrated that this technique can effectively identify high-performing neural network architectures while minimizing computational cost. However, we also found that one potential challenge with one-shot NAS is selecting the best architecture from among many that achieve high accuracy.
+
+During testing, some of our one-shot sub-networks achieved accuracy levels above 95%, with almost all sub-networks reaching 99% accuracy within 20 epochs. This presents a challenge when it comes to selecting the final architecture to use, as there may be multiple high-performing options to choose from.
+
+Overall, our results suggest that one-shot NAS is a promising approach for optimizing neural network architectures, but that careful consideration must be given to selecting the best architecture when multiple high-performing options are identified. Future research could focus on developing methods for effectively selecting the best architecture in such situations, or on adapting one-shot NAS for use in other domains beyond image classification.
