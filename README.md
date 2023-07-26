@@ -51,6 +51,20 @@ Note that if you add or remove dependencies from the pyproject.toml file, you wi
 
 The SuperNet and each of the 9 subnets were trained and tested on the MNIST dataset. The accuracy results for each subnet obtained during the experiments are presented below.
 
+## Subnets Architecture 
+
+| _Subnet_ | *# convs in NASBlock1*| *# convs in NASBlock2*|
+|----------|:-:|:-:|
+| Subnet 1 | 1 | 1
+| Subnet 2 | 1 | 2
+| Subnet 3 | 1 | 3
+| Subnet 4 | 2 | 1
+| Subnet 5 | 2 | 2
+| Subnet 6 | 2 | 3
+| Subnet 7 | 3 | 1
+| Subnet 8 | 3 | 2
+| Subnet 9 | 3 | 3
+
 ## One Shot Subnets
 
 ![One Shot Training Progress](pics/one-shot-subnets.png)
